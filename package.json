@@ -12,15 +12,18 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "compile-less": "npx lessc src/styles/my.uikit.less src/styles/global.css --math=always --relative-urls"
   },
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-plugin-react-helmet": "^3.9.0",
     "gatsby-source-filesystem": "^2.10.0",
     "gatsby-transformer-remark": "^2.15.0",
+    "less": "^4.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "uikit": "^3.6.20"
   }
 }
