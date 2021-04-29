@@ -1,6 +1,26 @@
 ---
-title: "投稿1"
-date: "2020-01-01"
-slug: "post1"
+title: "UIkitのカスタマイズ方法"
+date: "2021-04-29"
+slug: "20210426"
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et facilisis ligula. Morbi sed blandit elit, ac luctus tellus. Sed at libero condimentum ante vulputate blandit sed eu lectus. Curabitur quis purus fringilla, hendrerit erat ut, sagittis odio. Vivamus et rutrum odio. Proin dignissim eros a odio vestibulum pellentesque. Aenean finibus id velit blandit scelerisque. Duis tempus lorem vitae ligula placerat viverra. Fusce at posuere ligula. Phasellus nec sapien ultricies, ornare magna id, pharetra enim. Ut faucibus elementum orci id facilisis. Mauris pellentesque id lacus a volutpat. Nunc sed est id ipsum efficitur venenatis ac nec lacus.
+
+## 準備
+```none
+yarn add uikit
+```
+
+lessも入れておこう。
+```none
+yarn add less
+```
+
+## lessファイル作成 & コンパイル
+my.uikit.lessを作る。
+```less
+@import "./node_modules/uikit/src/less/uikit.theme.less";
+```
+
+以下のコマンドでCSSにコンパイルできる。
+```none
+npx lessc my.uikit.less my.uikit.css --math=always --relative-urls
+```

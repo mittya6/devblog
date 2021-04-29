@@ -3,13 +3,13 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 
-const IndexPage = ({ data }) => (
+export default ({ data }) => (
   <Layout>
     <h1>Hello, Gatsby!</h1>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <article key={node.frontmatter.slug}>
         <h2>
-          <Link to={`/${node.frontmatter.slug}`}>
+          <Link to={`/${node.id}`}>
             {node.frontmatter.title}
           </Link>
         </h2>
@@ -25,6 +25,7 @@ export const query = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          id
           frontmatter {
             title
             date(formatString: "YYYY年MM月DD日")
@@ -36,5 +37,3 @@ export const query = graphql`
     }
   }
 `
-
-export default IndexPage

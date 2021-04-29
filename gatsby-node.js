@@ -9,6 +9,7 @@ exports.createPages = async gatsbyNodeHelpers => {
       allMarkdownRemark {
         edges {
           node {
+            id
             frontmatter {
               slug
             }
@@ -20,10 +21,10 @@ exports.createPages = async gatsbyNodeHelpers => {
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.slug,
+      path: node.id,
       component: path.resolve(`./src/templates/post.js`),
       context: {
-        slug: node.frontmatter.slug
+        id: node.id
       }
     })
   })
