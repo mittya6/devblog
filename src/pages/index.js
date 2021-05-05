@@ -7,9 +7,9 @@ export default ({ data }) => (
   <Layout>
     <h1>Hello, Gatsby!</h1>
     {data.allMarkdownRemark.edges.map(({ node }) => (
-      <article key={node.frontmatter.slug}>
+      <article key={node.fields.slug}>
         <h2>
-          <Link to={`/${node.id}`}>
+          <Link to={`${node.fields.slug}`}>
             {node.frontmatter.title}
           </Link>
         </h2>
@@ -26,10 +26,12 @@ export const query = graphql`
       edges {
         node {
           id
+          fields{
+            slug
+          }
           frontmatter {
             title
             date(formatString: "YYYY年MM月DD日")
-            slug
           }
           excerpt
         }

@@ -31,29 +31,19 @@ h2{
     margin-top: @global-medium-margin;
 }
 
-h1::before {
-    border-left: solid 8px @global-danger-background;
-    padding-left: 8px;
+h4 + pre{
+    margin-top: 0 !important;
+    z-index:0;
 }
 
-#scrollspy .heading1 a::before {
-    border-left: solid 4px @global-danger-background;
-    padding-left: 4px;
+h4{
+    margin-top: 0 !important;
+    margin-bottom:0 !important;
+    position: relative;
+    top:8px;
+    z-index:2;
 }
 
-
-h2::before{
-    border-left: solid 8px @global-warning-background;
-    padding-left: 8px;
-}
-
-#scrollspy .heading2 a::before {
-    border-left: solid 4px @global-warning-background;
-    padding-left: 4px;
-}
-
-h3::before,
-#scrollspy .heading3 a::before{
-    border-left: solid 4px @global-muted-background;
-    padding-left: 4px;
+iframe{
+    border:solid @global-border-width @global-border;
 }

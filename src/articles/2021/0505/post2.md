@@ -1,0 +1,91 @@
+---
+title: "PixiJSでドラッグドロップ(オフセット付き)"
+date: "2021-05-05"
+avatar: './pixijs.png'
+---
+
+PixiJSで画像をドロップ＆ドロップするサンプルです。
+
+オフセットを使うと、画像を持って移動させてるように演出できます。
+
+
+<iframe width="100%" height="500" src="//jsfiddle.net/Mittya/7x4gfp0o/13/embedded/result,js/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+## 解説
+### タップ時点でオフセットを記録
+```javascript
+    function onDragStart(event) {
+      this.dragging = true;
+      //マウスの位置と画像の位置の差分を記録
+      const initPosition = event.data.getLocalPosition(this.parent);
+      this.initOffset = { x: initPosition.x - this.x, y: initPosition.y - this.y }
+    }
+```
+タップされた時点で、ポインタの位置と画像の位置の差分を"initOffset"として設定しています。
+以後、ポインタが移動すれば、この差分で画像を表示すればいいわけです。
+
+### 移動中にオフセットを適用。
+```javascript
+    function onDragMove(event) {
+      if (this.dragging) {
+        //マウスの位置を取得
+        const newPosition = event.data.getLocalPosition(this.parent);
+        //マウスと画像にオフセットを適用して表示
+        this.x = newPosition.x - this.initOffset.x;
+        this.y = newPosition.y - this.initOffset.y;
+      }
+    }
+```
+タップ時に記録したオフセットを移動するたびに画像とポインタの差異として適用させています。
+
+
+
+## 全体
+jsfiddleと同じですが、以下がソースの全体です。
+```javascript
+    // ビューの設定表示
+    const app = new PIXI.Application({
+      transparent: false,
+      backgroundColor: 0x888888,
+      width: 540,
+      height: 400
+    });
+    document.body.appendChild(app.view);
+
+    //画像のスプライト作成・表示
+    const texture = PIXI.Texture.from('https://i.postimg.cc/vZC7bxrY/town-FTHG8455-TP-V4.jpg');
+    const sprite = new PIXI.Sprite(texture);
+    sprite.interactive = true;
+    sprite.buttonMode = true;
+    app.stage.addChild(sprite);
+
+    //イベントの登録
+    sprite
+      .on('pointerdown', onDragStart)
+      .on('pointerup', onDragEnd)
+      .on('pointerupoutside', onDragEnd)
+      .on('pointermove', onDragMove);
+
+
+    function onDragStart(event) {
+      this.dragging = true;
+      //マウスの位置と画像の位置の差分を記録
+      const initPosition = event.data.getLocalPosition(this.parent);
+      this.initOffset = { x: initPosition.x - this.x, y: initPosition.y - this.y }
+    }
+
+    function onDragEnd() {
+      this.dragging = false;
+    }
+
+    function onDragMove(event) {
+      if (this.dragging) {
+        //マウスの位置を取得
+        const newPosition = event.data.getLocalPosition(this.parent);
+        //マウスと画像にオフセットを適用して表示
+        this.x = newPosition.x - this.initOffset.x;
+        this.y = newPosition.y - this.initOffset.y;
+      }
+    }
+```
+
