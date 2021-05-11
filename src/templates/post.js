@@ -4,7 +4,6 @@ import Image from "gatsby-image"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-
   return (
     <Layout>
       {data.markdownRemark.frontmatter.avatar && <Image fluid={data.markdownRemark.frontmatter.avatar.childImageSharp.fluid} />}
