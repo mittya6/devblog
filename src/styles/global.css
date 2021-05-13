@@ -12342,3 +12342,7 @@ iframe {
   background-color: #ffffff !important;
   opacity: 0.3;
 }
+.gatsby-code-button {
+  position: relative;
+  top: 6px;
+}
