@@ -1,13 +1,16 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 
 export default ({ data }) => (
   <Layout>
+
     <h1>Hello, Gatsby!</h1>
     {data.allMarkdownRemark.edges.map(({ node }) => (
-      <article key={node.fields.slug}>
+      <article className="uk-card uk-card-default uk-card-body uk-margin-bottom">
+        {node.frontmatter.avatar && <Image fluid={node.frontmatter.avatar.childImageSharp.fluid} />}
         <h2>
           <Link to={`${node.fields.slug}`}>
             {node.frontmatter.title}
@@ -32,6 +35,15 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "YYYY年MM月DD日")
+            avatar {
+              childImageSharp {
+    
+                fluid(maxWidth: 1000, quality: 90) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+    
+              }
+            }
           }
           excerpt
         }
