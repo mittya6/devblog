@@ -12322,17 +12322,18 @@ h1:not(:first-child) {
   margin-top: 70px;
 }
 h2 {
-  margin-top: 40px;
+  margin-top: 70px;
 }
 h4 + pre {
   margin-top: 0 !important;
   z-index: 0;
 }
 h4 {
-  margin-top: 0 !important;
+  display: inline-block;
+  background-color: aliceblue;
   margin-bottom: 0 !important;
   position: relative;
-  top: 8px;
+  top: 40px;
   z-index: 2;
 }
 iframe {
@@ -12345,4 +12346,10 @@ iframe {
 .gatsby-code-button {
   position: relative;
   top: 6px;
+}
+pre,
+code,
+p {
+  margin-bottom: 0px;
+  margin-top: 0px;
 }

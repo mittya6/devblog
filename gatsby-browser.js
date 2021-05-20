@@ -6,6 +6,6 @@
 //require("prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js");
 //require("prismjs/prism.js");
 require("prismjs/plugins/toolbar/prism-toolbar.css");
-require("prism-themes/themes/prism-ghcolors.css");
+require("prism-themes/themes/prism-coldark-cold.css");
 //require("prismjs/themes/prism-solarizedlight.css");
 require("./src/styles/global.css");

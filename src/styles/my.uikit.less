@@ -28,7 +28,7 @@ h1:not(:first-child){
 }
 
 h2{
-    margin-top: @global-medium-margin;
+    margin-top: @global-large-margin;
 }
 
 h4 + pre{
@@ -37,10 +37,11 @@ h4 + pre{
 }
 
 h4{
-    margin-top: 0 !important;
+    display:inline-block;
+    background-color: aliceblue;
     margin-bottom:0 !important;
     position: relative;
-    top:8px;
+    top:40px;
     z-index:2;
 }
 
@@ -56,4 +57,9 @@ iframe{
 .gatsby-code-button {
     position: relative;
     top:6px;
+}
+
+pre,code,p{
+    margin-bottom:0px;
+    margin-top:0px;
 }
