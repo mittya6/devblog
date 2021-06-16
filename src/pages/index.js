@@ -7,19 +7,21 @@ import Layout from "../components/layout"
 export default ({ data }) => (
   <Layout>
 
-    <h1>Hello, Gatsby!</h1>
-    {data.allMarkdownRemark.edges.map(({ node }) => (
-      <article className="uk-card uk-card-default uk-card-body uk-margin-bottom">
-        {node.frontmatter.avatar && <Image fluid={node.frontmatter.avatar.childImageSharp.fluid} />}
-        <h2>
-          <Link to={`${node.fields.slug}`}>
-            {node.frontmatter.title}
-          </Link>
-        </h2>
-        <time dateTime={node.frontmatter.date}>{node.frontmatter.date}</time>
-        <p>{node.excerpt}</p>
-      </article>
-    ))}
+    <div className="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s" uk-grid>
+
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <article className="uk-card ">
+          {node.frontmatter.avatar && <Image fluid={node.frontmatter.avatar.childImageSharp.fluid} />}
+          <h2>
+            <Link to={`${node.fields.slug}`}>
+              {node.frontmatter.title}
+            </Link>
+          </h2>
+          <time dateTime={node.frontmatter.date}>{node.frontmatter.date}</time>
+          <p>{node.excerpt}</p>
+        </article>
+      ))}
+    </div>
   </Layout>
 )
 
@@ -38,7 +40,7 @@ export const query = graphql`
             avatar {
               childImageSharp {
     
-                fluid(maxWidth: 1000, quality: 90) {
+                fluid(maxWidth: 480, quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
     
