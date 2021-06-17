@@ -7,10 +7,10 @@ import Layout from "../components/layout"
 export default ({ data }) => (
   <Layout>
 
-    <div className="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s" uk-grid>
+    <div className="uk-grid-small uk-child-width-1-3" uk-grid="true">
 
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <article className="uk-card ">
+        <article className="uk-card uk-grid-large">
           {node.frontmatter.avatar && <Image fluid={node.frontmatter.avatar.childImageSharp.fluid} />}
           <h2>
             <Link to={`${node.fields.slug}`}>
