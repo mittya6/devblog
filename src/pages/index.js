@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 export default ({ data }) => (
   <Layout>
 
-    <div className="uk-grid-small uk-child-width-1-3" uk-grid="true">
+    <div className="uk-grid-column-large uk-child-width-1-3" uk-grid="true">
 
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <article className="uk-card uk-grid-large">
@@ -40,7 +40,7 @@ export const query = graphql`
             avatar {
               childImageSharp {
     
-                fluid(maxWidth: 480, quality: 90) {
+                fluid(maxWidth: 240, quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
     
