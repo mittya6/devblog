@@ -9,6 +9,7 @@ export default ({ children }) => (
     <Helmet>
       <title>Program Praia</title>
       <meta name="description" content="このページはGastbyサンプルです。" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.20/js/uikit.min.js" integrity="sha512-SKcdAvrPgF8Iy45+CmcEwF4S2uhVLyTNM8o4UVfggZCQbUIv69qT+b2ppvFlud86827BuRNe7CtCrppmkmdOvQ==" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.20/js/uikit-icons.min.js" integrity="sha512-5kjeg68TagkjC5zqP4kfrzqewo2G7mku+uYr0UImSe/FsjIDdh6JGN1XvxRznmXJe2ZZ+epKPfHE8amCM9bZ8Q==" crossorigin="anonymous"></script>
       <html lang="ja" />
