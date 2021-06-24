@@ -40,7 +40,7 @@ export const query = graphql`
             avatar {
               childImageSharp {
     
-                fluid(maxWidth: 240, quality: 90) {
+                fluid(maxWidth: 360, quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
     
