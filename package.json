@@ -16,10 +16,16 @@
     "compile-less": "npx lessc src/styles/my.uikit.less src/styles/global.css --math=always --relative-urls"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
+    "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^3.4.0",
+    "gatsby-plugin-material-ui": "^3.0.1",
     "gatsby-plugin-react-helmet": "^3.9.0",
     "gatsby-plugin-sharp": "^3.4.1",
+    "gatsby-plugin-styled-components": "^4.8.0",
     "gatsby-remark-code-buttons": "^2.0.7",
     "gatsby-remark-images": "^5.1.0",
     "gatsby-remark-prismjs": "^5.2.0",
@@ -32,6 +38,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "uikit": "^3.6.20"
+    "styled-components": "^5.3.0"
   }
 }
