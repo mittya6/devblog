@@ -123,7 +123,7 @@ export default ({ data }) => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary" onClick={() => { window.location.href = node.fields.slug }}>
+                    <Button size="small" color="primary" href={node.fields.slug}>
                       View
                     </Button>
                   </CardActions>

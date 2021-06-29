@@ -1,38 +1,61 @@
 import React from "react"
 import Helmet from "react-helmet"
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
-export default ({ children }) => (
 
-  <div className="uk-container uk-container-xsmall ">
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+
+
+export default ({ children }) =>  {
+  
+  const classes = useStyles();
+  return (
+
+  <>
     <Helmet>
       <title>Program Praia</title>
       <meta name="description" content="このページはGastbyサンプルです。" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <html lang="ja" />
     </Helmet>
-    <nav className="uk-navbar-container uk-navbar-transparent" uk-navbar="true" uk-sticky="true">
-      <div className="uk-navbar-left">
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
 
-        <ul className="uk-navbar-nav">
-          <li className="uk-active"><a href="/"><span uk-icon="home"></span>
-          </a></li>
-          <li>
-            <a href="#">Parent</a>
-            <div className="uk-navbar-dropdown">
-              <ul className="uk-nav uk-navbar-dropdown-nav">
-                <li className="uk-active"><a href="/#">Active</a></li>
-                <li><a href="/#">Item</a></li>
-                <li><a href="/#">Item</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a href="/#">Item</a></li>
-        </ul>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="md">
+        {children}
+      </Container>
+    </React.Fragment>
+  </>
 
-      </div>
-    </nav>
-
-    {children}
-  </div>
-
-)
+)}
